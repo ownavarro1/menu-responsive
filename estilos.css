@@ -1,0 +1,127 @@
+
+/*La propiedad CSS box-sizingnos permite incluir el relleno y el borde en el ancho y alto total de un elemento.*/ 
+*{
+    
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+nav{
+    background: #2fcdcd;
+    height: 80px;
+    width: 100%;
+}
+.enlace{
+   /*El elemento se coloca en relación con su primer elemento antecesor posicionado (no estático)*/ 
+    position: absolute;
+    padding: 20px 50px;
+}
+.logo{
+    height: 40px;
+}
+nav ul{
+ /*La floatpropiedad especifica si un elemento debe flotar a la izquierda, a la derecha o no flotar en absoluto.
+    right El elemento flota a la derecha de su contenedor.*/   
+    
+    float: right;
+    margin-right: 20px;
+}
+/*La displaypropiedad especifica el comportamiento de visualización (el tipo de cuadro de representación) de un elemento.
+
+Muestra un elemento como un contenedor de bloques de nivel en línea. El elemento en sí está formateado como un elemento en línea, pero puede aplicar valores de alto y ancho.
+*/
+nav ul li{
+    display: inline-block;
+    
+/*line-heightpropiedad especifica la altura de una línea.*/
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+/*text-transform propiedad controla las mayúsculas del texto
+
+    Transforma todos los caracteres a mayúsculas*/    
+    text-transform: uppercase;
+}
+li a.active, li a:hover{
+    background: #000090;
+    
+/*la propiedad de duración de la transición ; de lo contrario, la duración es 0 y la transición no tendrá efecto.*/    
+    transition: .5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: #fff;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+/*La cursorpropiedad especifica el cursor del mouse que se mostrará cuando se apunte sobre un elemento
+El cursor es un puntero e indica un enlace.
+    */
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+section{
+    background: url(fondo.jpg) no-repeat;
+/*Especifique el tamaño de una imagen de fondo con "auto" y en píxeles
+    
+Cambia el tamaño de la imagen de fondo para cubrir todo el contenedor, incluso si tiene que estirar la imagen o cortar un poco uno de los bordes.    
+    */
+    background-size: cover;
+    background-position: center center;
+    
+/*calc() La función CSS calc() le permite realizar cálculos al especificar valores de propiedad CSS . Se puede usar en cualquier lugar donde se permita <longitud> , <frecuencia> , <ángulo> , <tiempo> , <porcentaje> , <número> o <entero>
+    
+Altura de la ventana gráfica (vh). Esta unidad se basa en la altura de la ventana gráfica . Un valor de 1vh es igual al 1% de la altura de la ventana gráfica. Ancho de la ventana gráfica (vw). Esta unidad se basa en el ancho de la ventana gráfica.*/
+    height: calc(100vh - 80px);
+}
+
+@media (max-width: 952px){
+    .enlace{
+        padding-left: 20px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li a.active{
+        background: none;
+        color: red;
+    }
+    #check:checked ~ ul{
+        left:0;
+    }
+}
